@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import AsyncRepondComp from "./pages/AsyncRespond";
 import InstantRespondComp from "./pages/InstantRespond";
 import { Link, Route, Routes } from "react-router-dom";
