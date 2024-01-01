@@ -11,9 +11,13 @@ const InstantRespondComp = () => {
       <h2 className="text-3xl text-center bg-slate-400 font-bold py-2">
         Instant Move
       </h2>
-      <div className="bg-slate-300 flex justify-center py-6">
-        {isLoading ? (
-          <button disabled onClick={count < 9 ? increment : undefined}>
+      <div className="bg-slate-300 flex justify-center py-6 text-xl">
+        {isLoading || count == 9 ? (
+          <button
+            disabled
+            onClick={count < 9 ? increment : undefined}
+            className="bg-slate-400 py-1 px-3 rounded-xl text-xl mx-2 font-medium"
+          >
             Increment
           </button>
         ) : (
@@ -27,8 +31,12 @@ const InstantRespondComp = () => {
         <span className="bg-slate-400 py-1 px-3 rounded-xl text-xl mx-2">
           {count}
         </span>
-        {isLoading ? (
-          <button disabled onClick={count > 0 ? decrement : undefined}>
+        {isLoading || count == 0 ? (
+          <button
+            disabled
+            onClick={count > 0 ? decrement : undefined}
+            className="bg-slate-400 py-1 px-3 rounded-xl font-medium text-xl mx-2"
+          >
             Decrement
           </button>
         ) : (

@@ -23,6 +23,9 @@ function App() {
             <Route path="/Async" element={<AsyncRepondComp />} />
           </Routes>
         </div>
+        <p className="text-center bg-slate-400 py-2 text-sm">
+          This program rank is showing-up 0 to 9
+        </p>
       </div>
     </>
   );

@@ -9,10 +9,10 @@ const AsyncRepondComp = () => {
   return (
     <div className=" w-[100%]">
       <h2 className="text-3xl text-center bg-slate-400 font-bold py-2">
-        Instant Move
+        Move After 1 Secound
       </h2>
       <div className="bg-slate-300 flex justify-center py-6">
-        {isLoading ? (
+        {isLoading || count == 9 ? (
           <button
             disabled
             onClick={count < 9 ? incrementAsync : undefined}
@@ -31,7 +31,7 @@ const AsyncRepondComp = () => {
         <span className="bg-slate-400 py-1 px-3 rounded-xl text-xl mx-2">
           {count}
         </span>
-        {isLoading ? (
+        {isLoading || count == 0 ? (
           <button
             disabled
             onClick={count > 0 ? decrementAsync : undefined}
