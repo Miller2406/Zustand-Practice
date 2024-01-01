@@ -7,21 +7,25 @@ type CounterStore = {
   increment: () => void;
   incrementAsync: () => Promise<void>;
   count: number;
-  number: number;
+  isLoading: boolean;
 };
 
 // create the store with initail value and function by set function
 export const useCounterStore = create<CounterStore>((set) => ({
   count: 0,
-  number: 0,
+  isLoading: false,
   increment: () => set((state) => ({ count: state.count + 1 })),
   incrementAsync: async () => {
+    set(() => ({ isLoading: true }));
     await new Promise((resolve) => setTimeout(resolve, 1000));
     set((state) => ({ count: state.count + 1 }));
+    set(() => ({ isLoading: !true }));
   },
   decrementAsync: async () => {
+    set(() => ({ isLoading: true }));
     await new Promise((resolve) => setTimeout(resolve, 1000));
     set((state) => ({ count: state.count - 1 }));
+    set(() => ({ isLoading: !true }));
   },
   decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
